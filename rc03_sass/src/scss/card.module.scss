@@ -1,0 +1,63 @@
+@import './variables';
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5rem;
+    margin-top: 2rem;
+    gap: 2.4rem;
+    .card{
+        text-align: center;
+        max-width: 280px;
+        border-radius: 1rem;
+        box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.3);
+        padding: 1.4rem;
+        &:hover{
+            box-shadow: 7px 7px 7px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        img{
+            width: 50%;
+            margin: 1rem;
+            border-radius: 40%;
+        }
+
+        h1{
+            color: red;
+        }
+
+        h3{
+            color: green
+        }
+
+        .btn-container{
+            button{
+                border-radius: 1rem;
+                color: white;
+                cursor: pointer;
+                border: none;
+                &:hover{
+                    opacity: 0.5;
+                }
+            }
+
+            &--small{
+                background-color: $lightPink;
+                padding: 0.7rem;
+                margin-right: 0.3rem;
+                
+            }
+
+            &--large{
+                background-color: $olive;
+                padding: 0.8rem 1.6rem;
+
+            }
+
+            
+        }
+    }
+}
+
