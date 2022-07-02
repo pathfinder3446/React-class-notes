@@ -25,7 +25,7 @@ useEffect(() => {
     getTutorials();
 }, []);
 
-  console.log(tutorials);
+
 
 
   //! POST (CREATE)
@@ -39,10 +39,19 @@ useEffect(() => {
 
   }
 
+  const deleteTutorial = async (id) => {
+    try{
+      await axios.delete(`${url}/${id}`)
+    } catch (error){
+      console.log(error);
+    }
+    getTutorials();
+  };
+
   return (
     <>
       <AddTutorial addTutorials = {addTutorials} />
-      <TutorialList tutorials={tutorials} />
+      <TutorialList tutorials={tutorials} deleteTutorials={deleteTutorial} />
     </>
   );
 };
