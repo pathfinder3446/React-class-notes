@@ -39,6 +39,7 @@ useEffect(() => {
 
   }
 
+  //!DELETE
   const deleteTutorial = async (id) => {
     try{
       await axios.delete(`${url}/${id}`)
@@ -48,10 +49,24 @@ useEffect(() => {
     getTutorials();
   };
 
+  //!UPDATE(PUT:wholeupdate, PATCH:partially update)
+  const editTutorial = async (id,title,desc) => {
+    const filtered = tutorials
+    .filter((tutor) => tutor.id===id)
+    .map(() => ({title:title, description:desc}));
+
+    try{
+      await axios.put(`${url}/${id}`)
+    } catch(error) {
+      console.log(error);
+    }
+    getTutorials();
+  }; 
+
   return (
     <>
       <AddTutorial addTutorials = {addTutorials} />
-      <TutorialList tutorials={tutorials} deleteTutorials={deleteTutorial} />
+      <TutorialList tutorials={tutorials} deleteTutorials={deleteTutorial} editTutorial={editTutorial}/>
     </>
   );
 };
