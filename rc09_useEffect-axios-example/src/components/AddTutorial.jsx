@@ -1,11 +1,14 @@
 import { useState } from "react";
 
-const AddTutorial = () => {
+const AddTutorial = ({addTutorials}) => {
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
 
   const handleSubmit = (e) => {
-
+    e.preventDefault();
+    addTutorials({title: title, description: desc})
+    setTitle('');
+    setDesc('');
   };
 
   return (
