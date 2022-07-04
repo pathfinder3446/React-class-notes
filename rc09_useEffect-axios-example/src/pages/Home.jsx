@@ -4,69 +4,70 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 
 const Home = () => {
-
   const [tutorials, setTutorials] = useState();
 
-  const url = "https://cw-axios-example.herokuapp.com/api/tutorials";
+  const url = 'https://tutorials-api-cw.herokuapp.com/api/tutorials';
 
-
-  //! GET
-  const getTutorials = async () =>{
-    try{
-      const { data } = await axios.get(url);
-    setTutorials(data);
-    } catch (error) {
-      console.log(error);
-    }
-    
-  };
-
-useEffect(() => {
-    getTutorials();
-}, []);
-
-
-
-
-  //! POST (CREATE)
-  const addTutorials = async (tutorials) => {
+  //! GET (Read)
+  const getTutorials = async () => {
     try {
-      await axios.post(url, tutorials)
+      const { data } = await axios.get(url);
+      setTutorials(data);
     } catch (error) {
       console.log(error);
     }
+  };
+
+  //? Sadece Component mount oldugunda istek yapar
+  useEffect(() => {
     getTutorials();
+  }, []);
 
-  }
+  console.log(tutorials);
 
-  //!DELETE
-  const deleteTutorial = async (id) => {
-    try{
-      await axios.delete(`${url}/${id}`)
-    } catch (error){
+  //! POST (Create)
+  const addTutorial = async (tutorial) => {
+    try {
+      await axios.post(url, tutorial);
+    } catch (error) {
       console.log(error);
     }
     getTutorials();
   };
 
-  //!UPDATE(PUT:wholeupdate, PATCH:partially update)
-  const editTutorial = async (id,title,desc) => {
-    const filtered = tutorials
-    .filter((tutor) => tutor.id===id)
-    .map(() => ({title:title, description:desc}));
-
-    try{
-      await axios.put(`${url}/${id}`)
-    } catch(error) {
+  //! DELETE (delete)
+  const deleteTutorial = async (id) => {
+    try {
+      await axios.delete(`${url}/${id}`);
+    } catch (error) {
       console.log(error);
     }
     getTutorials();
-  }; 
+  };
+
+  //! Update (PUT:Whole Update,PATCH :Partially Update)
+  const editTutorial = async (id, title, desc) => {
+    const filtered = tutorials
+      .filter((tutor) => tutor.id === id)
+      .map(() => ({ title: title, description: desc }));
+
+    console.log(filtered);
+    try {
+      await axios.put(`${url}/${id}`, filtered[0]);
+    } catch (error) {
+      console.log(error);
+    }
+    getTutorials();
+  };
 
   return (
     <>
-      <AddTutorial addTutorials = {addTutorials} />
-      <TutorialList tutorials={tutorials} deleteTutorials={deleteTutorial} editTutorial={editTutorial}/>
+      <AddTutorial addTutorial={addTutorial} />
+      <TutorialList
+        tutorials={tutorials}
+        deleteTutorial={deleteTutorial}
+        editTutorial={editTutorial}
+      />
     </>
   );
 };
