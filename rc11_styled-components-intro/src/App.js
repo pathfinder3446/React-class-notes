@@ -16,6 +16,10 @@ const App = () => {
       <StyledLink href="https://clarusway.com/" target="_blank">
           Clarusway
         </StyledLink>
+      <StyledLink secondary href="https://clarusway.com/" target="_blank">
+          Clarusway
+        </StyledLink>
+        
     </Container>
       
     </>
