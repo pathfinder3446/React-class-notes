@@ -2,6 +2,7 @@ import courses from '../data';
 
 const Courses = () => {
 
+  
   return (
     <div className="container text-center mt-4 p-4">
       <h1>OUR COURSES</h1>
