@@ -6,10 +6,14 @@ export const initialState ={
 
 export const reducer = (state, action) =>{
 
-    switch (action.type)) {
+    switch (action.type) {
         case 'START':
+            return {...state, dog:"", error:'', loading: true};
+        case 'SUCCESS':
+            return {...state, dog: action.payload, error:'', loading: false};
+        case 'FAIL':
+            return {...state, dog: action.payload, error:'', loading: false};
             
-            break;
     
         default:
             break;
