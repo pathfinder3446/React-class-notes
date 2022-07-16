@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import StudentList from './components/StudentList';
+import { StudentContext } from './context/StudentContext';
 import data from './data';
 
 function App() {
@@ -7,7 +8,10 @@ function App() {
 
   return (
     <div>
-      <StudentList students={students} />
+      {/* <StudentList students={students} /> */}
+      <StudentContext.Provider value={{students, setStudents}} >
+        <StudentList />
+      </StudentContext.Provider>
     </div>
   );
 }
