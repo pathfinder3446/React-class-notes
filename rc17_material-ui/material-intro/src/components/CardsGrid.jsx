@@ -1,37 +1,44 @@
-import * as React from "react";
-import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import data from "../data";
-import { Grid } from "@mui/material";
-import { Container } from "@mui/system";
+import * as React from 'react';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import {
+  Button,
+  CardActionArea,
+  CardActions,
+  Grid,
+  Container,
+} from '@mui/material';
+import data from '../data';
 
-export default function MediaCard() {
+export default function CardsGrid() {
   return (
     <Container>
-      <Typography variant="h4" align="center" color="error" mt={4}>
+      <Typography variant="h4" align="center" mt={4} color="error">
         CARDS & GRIDS
       </Typography>
-      <Grid container spacing={3}>
+      <Grid container spacing={2} justifyContent="center">
         {data.map((card) => {
           const { id, name, text, img } = card;
           return (
             <Grid item key={id} xs={12} sm={6} md={4}>
               <Card>
-                <CardMedia component="img" image={img} alt="name" />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
-                    {name}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    {text}
-                  </Typography>
-                </CardContent>
+                <CardActionArea>
+                  <CardMedia component="img" image={img} alt={name} />
+                  <CardContent>
+                    <Typography gutterBottom variant="h5" component="div">
+                      {name}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      {text}
+                    </Typography>
+                  </CardContent>
+                </CardActionArea>
                 <CardActions>
-                  <Button size="small">Share</Button>
+                  <Button size="small" color="primary">
+                    Share
+                  </Button>
                 </CardActions>
               </Card>
             </Grid>
