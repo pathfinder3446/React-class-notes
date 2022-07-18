@@ -1,36 +1,32 @@
-import { useReducer } from "react";
-import { initialState, reducer } from "./reducer";
+import { useReducer } from 'react';
+import { initialState, reducer } from './reducer';
 
-const UseReducerExample = () => {
- const [state, dispatch] = useReducer(reducer, initialState);
-
+const UserReducerExample = () => {
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const { loading, error, dog } = state;
+  
   const fetchDog = () => {
-    
-    dispatch({type: 'START'});
-
-    fetch("https://dog.ceo/api/breeds/image/random")
+    dispatch({ type: 'START' });
+    fetch('https://dog.ceo/api/breeds/image/random')
       .then((res) => res.json())
       .then((data) => {
-        dispatch({type: 'SUCCESS', payload: data.message});
-        // setDog(data.message);
-        // setLoading(false);
+        dispatch({ type: 'SUCCESS', payload: data.message });
       })
       .catch(() => {
-        dispatch({type: 'FAIL, payload: "ERROR!! DATA CAN NOT BE FETCHED"});
-        
+        dispatch({ type: 'FAIL', payload: 'ERROR!! DATA CAN NOT BE FETCHED' });
       });
   };
   return (
     <div
       style={{
-        display: "flex",
-        flexDirection: "column",
+        display: 'flex',
+        flexDirection: 'column',
       }}
     >
       <button
         onClick={fetchDog}
         disabled={loading}
-        style={{ width: "200px", margin: "1rem" }}
+        style={{ width: '200px', margin: '1rem' }}
       >
         Fetch Dog
       </button>
@@ -40,4 +36,4 @@ const UseReducerExample = () => {
   );
 };
 
-export default UseReducerExample;
+export default UserReducerExample;
