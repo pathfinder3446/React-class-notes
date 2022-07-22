@@ -10,7 +10,7 @@ import counterReducer from './redux/reducer/counterReducer';
 
 function App() {
 
-// const store = createStore(counterReducer)
+// const store = createStore(counter)
 
   const store = getStore();
 

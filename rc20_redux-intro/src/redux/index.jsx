@@ -26,8 +26,8 @@ import counterReducer from './reducer/counterReducer';
 import todoReducer from './reducer/todoReducer';
 
 const rootReducer = combineReducers({
-    counterReducer: counterReducer,
-    todoReducer: todoReducer,
+    counterRed: counterReducer,
+    todoRed: todoReducer,
 });
 
 export const getStore = () => {
