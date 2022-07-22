@@ -1,15 +1,18 @@
 import './App.css';
 import Counter from './components/counter/Counter';
 import Todo from './components/todo/Todo';
-import {createStore} from "redux";
+// import {createStore} from "redux";
 import {Provider} from "react-redux";
-import reducer from './redux';
+import {getStore} from './redux';
+import counterReducer from './redux/reducer/counterReducer';
 
 
 
 function App() {
 
-const store = createStore(reducer)
+// const store = createStore(counterReducer)
+
+  const store = getStore();
 
   return (
     <div className="app">
