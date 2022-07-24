@@ -8,7 +8,7 @@ const TodoInput = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(addTodo(text))
+    dispatch(addTodo(text));
     setText('');
   };
 
