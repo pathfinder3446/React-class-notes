@@ -32,6 +32,7 @@ export default function Navbar() {
             Clarusway News
           </Typography>
           {user ? (
+            
             <Button color="inherit" onClick={handleLogout}>
               Logout
             </Button>
