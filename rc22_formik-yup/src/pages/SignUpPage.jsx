@@ -8,7 +8,7 @@ import { FaLock } from 'react-icons/fa';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 
-const LoginPage = () => {
+const SignUpPage = () => {
   return (
     <Container maxWidth="sm" sx={{ mt: '10rem', textAlign: 'center' }}>
       <Avatar
@@ -104,4 +104,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default SignUpPage;
