@@ -19,6 +19,7 @@ const SignUpForm = ({ values, handleChange, errors, touched, handleBlur }) => {
             onBlur={handleBlur}
             helperText={touched.fullName && errors.fullName}
             error={touched.fullName && Boolean(errors.fullName)}
+            
           />
           <TextField
             label="Email"
